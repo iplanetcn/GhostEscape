@@ -1,3 +1,16 @@
+# Mac
+.DS_Store
+**/.DS_Store
+
+# IDE
+.vscode/
+.config/
+
+# build
+build/
+build-*/
+*-darwin
+
 # Prerequisites
 *.d
 
