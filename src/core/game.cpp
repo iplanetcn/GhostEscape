@@ -1,11 +1,12 @@
 #include "game.h"
+#include "../scene_main.h"
 
 void Game::run()
 {
     while (is_running_){
         auto start = SDL_GetTicksNS();
         handleEvents();
-        update(0.0f);
+        update(dt_);
         render();
         auto end = SDL_GetTicksNS();
         auto elapsed = end - start;
@@ -15,7 +16,7 @@ void Game::run()
         }else{
             dt_ = elapsed / 1.0e9;
         }
-        SDL_Log("FPS: %f", 1.0 / dt_);
+        // SDL_Log("FPS: %f", 1.0 / dt_);
     }
 }
 
@@ -52,6 +53,10 @@ void Game::init(std::string title, int width, int height)
 
     // 计算帧延迟
     frame_delay_ = 1000000000 / FPS_;
+
+    // 创建场景
+    current_scene_ = new SceneMain();
+    current_scene_->init();
 }
 
 void Game::handleEvents()
@@ -63,19 +68,43 @@ void Game::handleEvents()
             is_running_ = false;
             break;
         default:
-            break;
+            current_scene_->handleEvents(event);
         }
     }
 }
 
 void Game::update(float dt)
 {
+    current_scene_->update(dt);
 }
 
 void Game::render()
 {
+    SDL_SetRenderDrawColor(renderer_, 0, 0, 0, 255);
+    SDL_RenderClear(renderer_);
+    current_scene_->render();
+    SDL_RenderPresent(renderer_);
 }
 
 void Game::clean()
 {
+    if (current_scene_){
+        current_scene_->clean();
+        delete current_scene_;
+    }
+
+    // 释放渲染器和窗口
+    if (renderer_){
+        SDL_DestroyRenderer(renderer_);
+    }
+    if (window_){
+        SDL_DestroyWindow(window_);
+    }
+    // 退出Mix
+    Mix_CloseAudio();
+    Mix_Quit();
+    // 退出TTF
+    TTF_Quit();
+    // 退出SDL
+    SDL_Quit();
 }

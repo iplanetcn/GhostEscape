@@ -1,3 +1,6 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include <SDL3/SDL.h>
 #include <SDL3_image/SDL_image.h>
 #include <SDL3_mixer/SDL_mixer.h>
@@ -5,10 +8,13 @@
 #include <glm/glm.hpp>
 #include <string>   
 
+
+class Scene;
 class Game
 {
     glm::vec2 screen_size_ = glm::vec2(0); // 屏幕大小
     bool is_running_ = true; // 游戏是否运行
+    Scene* current_scene_ = nullptr; // 当前场景
 
     Uint64 FPS_ = 60; // 游戏帧率
     Uint64 frame_delay_ = 0; // 帧延迟，单位ns
@@ -37,3 +43,5 @@ public:
     void render(); // 渲染游戏
     void clean(); // 清理游戏资源
 };
+
+#endif // GAME_H
