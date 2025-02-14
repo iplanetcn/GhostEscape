@@ -3,9 +3,19 @@
 void Game::run()
 {
     while (is_running_){
+        auto start = SDL_GetTicksNS();
         handleEvents();
         update(0.0f);
         render();
+        auto end = SDL_GetTicksNS();
+        auto elapsed = end - start;
+        if (elapsed < frame_delay_){
+            SDL_DelayNS((frame_delay_ - elapsed) / 1000000);
+            dt_ = frame_delay_ / 1.0e9;
+        }else{
+            dt_ = elapsed / 1.0e9;
+        }
+        SDL_Log("FPS: %f", 1.0 / dt_);
     }
 }
 
@@ -39,6 +49,9 @@ void Game::init(std::string title, int width, int height)
     }
     // 设置窗口逻辑分辨率
     SDL_SetRenderLogicalPresentation(renderer_, width, height, SDL_LOGICAL_PRESENTATION_LETTERBOX);
+
+    // 计算帧延迟
+    frame_delay_ = 1000000000 / FPS_;
 }
 
 void Game::handleEvents()
