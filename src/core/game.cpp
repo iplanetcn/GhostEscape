@@ -1,5 +1,8 @@
 #include "game.h"
 #include "../scene_main.h"
+#include "object_screen.h"
+#include "object_world.h"
+#include "actor.h"
 
 void Game::run()
 {
@@ -11,7 +14,7 @@ void Game::run()
         auto end = SDL_GetTicksNS();
         auto elapsed = end - start;
         if (elapsed < frame_delay_){
-            SDL_DelayNS((frame_delay_ - elapsed) / 1000000);
+            SDL_DelayNS(frame_delay_ - elapsed);
             dt_ = frame_delay_ / 1.0e9;
         }else{
             dt_ = elapsed / 1.0e9;

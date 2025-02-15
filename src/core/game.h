@@ -45,6 +45,7 @@ public:
 
     // getters and setters
     glm::vec2 getScreenSize() const { return screen_size_; } // 获取屏幕大小
+    Scene* getCurrentScene() const { return current_scene_; } // 获取当前场景
 
     // 工具函数
     void drawGrid(const glm::vec2& top_left, const glm::vec2& botton_right, float grid_width, SDL_FColor fcolor); // 绘制网格
