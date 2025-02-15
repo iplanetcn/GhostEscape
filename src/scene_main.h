@@ -5,7 +5,7 @@
 
 class SceneMain: public Scene
 {
-
+    glm::vec2 world_size_ = glm::vec2(0); // 世界大小
 public:
     SceneMain() = default;
     virtual ~SceneMain() = default;
@@ -15,6 +15,10 @@ public:
     virtual void update(float dt) override;
     virtual void render() override;
     virtual void clean() override;
+
+private:
+    void renderBackground();
+
 
 };
 

@@ -4,6 +4,8 @@
 #include "game.h"
 
 class Object {
+    
+protected:
     Game& game_ = Game::GetInstance();
 public:
     Object() = default;
