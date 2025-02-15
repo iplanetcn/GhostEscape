@@ -120,3 +120,18 @@ void Game::drawGrid(const glm::vec2 &top_left, const glm::vec2 &botton_right, fl
     }
     SDL_SetRenderDrawColorFloat(renderer_, 0, 0, 0, 1);
 }
+
+void Game::drawBoundary(const glm::vec2 &top_left, const glm::vec2 &botton_right, float boundary_width, SDL_FColor fcolor)
+{
+    SDL_SetRenderDrawColorFloat(renderer_, fcolor.r, fcolor.g, fcolor.b, fcolor.a);
+    for (float i = 0; i < boundary_width; i++){
+        SDL_FRect rect = {
+            top_left.x - i,
+            top_left.y - i,
+            botton_right.x - top_left.x + 2 * i,
+            botton_right.y - top_left.y + 2 * i
+        };
+        SDL_RenderRect(renderer_, &rect);
+    }
+    SDL_SetRenderDrawColorFloat(renderer_, 0, 0, 0, 1);
+}
