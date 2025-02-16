@@ -30,6 +30,7 @@ find_package(glm REQUIRED)
 add_executable(${TARGET} 
                 src/core/game.cpp
                 src/core/asset_store.cpp
+                src/core/object.cpp
                 src/core/object_world.cpp
                 src/core/scene.cpp
                 src/player.cpp
