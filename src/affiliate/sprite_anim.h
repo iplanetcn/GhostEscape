@@ -23,6 +23,8 @@ public:
     void setTotalFrames(int total_frames) { total_frames_ = total_frames; }
     int getFps() const { return fps_; }
     void setFps(int fps) { fps_ = fps; }
+    float getFrameTimer() const { return frame_timer_; }
+    void setFrameTimer(float frame_timer) { frame_timer_ = frame_timer; }
 
 };
 

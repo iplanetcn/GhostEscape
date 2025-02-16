@@ -2,9 +2,13 @@
 #define PLAYER_H
 
 #include "core/actor.h"
+#include "affiliate/sprite_anim.h"
 
 class Player : public Actor
 {
+    SpriteAnim* sprite_idle_ = nullptr;
+    SpriteAnim* sprite_move_ = nullptr;
+    bool is_moving_ = false;
 public:
 
     virtual void init() override;
@@ -16,6 +20,8 @@ public:
     void keyboardControl();
     void move(float dt);
     void syncCamera();
+    void checkState();
+    void changeState(bool is_moving);
 };
 
 

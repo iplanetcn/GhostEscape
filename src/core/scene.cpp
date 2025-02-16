@@ -5,11 +5,15 @@ void Scene::handleEvents(SDL_Event &event)
     Object::handleEvents(event);
     for (auto &child : children_screen_)
     {
-        child->handleEvents(event);
+        if(child->getActive()) {
+            child->handleEvents(event);
+        }
     }
     for (auto &child : children_world_)
     {
-        child->handleEvents(event);
+        if(child->getActive()) {
+            child->handleEvents(event);
+        }
     }
 
 }
@@ -19,11 +23,15 @@ void Scene::update(float dt)
     Object::update(dt);
     for (auto &child : children_world_)
     {
-        child->update(dt);
+        if(child->getActive()) {
+            child->update(dt);
+        }
     }
     for (auto &child : children_screen_)
     {
-        child->update(dt);
+        if(child->getActive()) {
+            child->update(dt);
+        }
     }
 }
 
@@ -32,11 +40,15 @@ void Scene::render()
     Object::render();
     for (auto &child : children_world_)
     {
-        child->render();
+        if(child->getActive()) {
+            child->render();
+        }
     }
     for (auto &child : children_screen_)
     {
-        child->render();
+        if(child->getActive()) {
+            child->render();
+        }
     }
 }
 
