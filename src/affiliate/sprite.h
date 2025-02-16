@@ -20,12 +20,15 @@ protected:
     Texture texture_;
 
 public:
-    Sprite() = default;
+    static Sprite* addSpriteChild(ObjectScreen* parrent, const std::string& file_path, float scale = 1.0f);
+
     virtual void render() override;
+
+    void setScale(float scale) { size_ *= scale; }
 
     // getters and setters
     Texture getTexture() const { return texture_; }
-    void setTexture(const Texture &texture);
+    virtual void setTexture(const Texture &texture);
 
 };
 
