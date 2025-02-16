@@ -23,8 +23,8 @@ void SceneMain::update(float dt)
 
 void SceneMain::render()
 {
-    Scene::render();
     renderBackground();
+    Scene::render();
 }
 
 void SceneMain::clean()

@@ -9,6 +9,7 @@ Texture::Texture(const std::string &file_path)
 Sprite *Sprite::addSpriteChild(ObjectScreen *parrent, const std::string &file_path, float scale)
 {
     auto sprite = new Sprite();
+    sprite->init();
     sprite->setTexture(Texture(file_path));
     sprite->setScale(scale);
     sprite->setParrent(parrent);

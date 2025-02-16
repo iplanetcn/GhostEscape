@@ -3,6 +3,7 @@
 SpriteAnim *SpriteAnim::addSpriteAnimChild(ObjectScreen *parrent, const std::string &file_path, float scale)
 {
     auto sprite_anim = new SpriteAnim();
+    sprite_anim->init();
     sprite_anim->setTexture(Texture(file_path));
     sprite_anim->setScale(scale);
     sprite_anim->setParrent(parrent);
