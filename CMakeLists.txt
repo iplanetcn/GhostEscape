@@ -34,9 +34,11 @@ add_executable(${TARGET}
                 src/core/object_world.cpp
                 src/core/object_affiliate.cpp
                 src/core/scene.cpp
+                src/core/actor.cpp
                 src/affiliate/sprite.cpp
                 src/affiliate/sprite_anim.cpp
                 src/player.cpp
+                src/enemy.cpp
                 src/main.cpp
                 src/scene_main.cpp
                 )
