@@ -1,5 +1,5 @@
 #include "enemy.h"
-
+#include "core/scene.h"
 
 
 void Enemy::init()
@@ -10,6 +10,7 @@ void Enemy::init()
     anim_die_ = SpriteAnim::addSpriteAnimChild(this, "assets/sprite/ghostDead-Sheet.png", 2.0f);
     anim_hurt_->setActive(false);
     anim_die_->setActive(false);
+    anim_die_->setLoop(false);
 
     current_anim_ = anim_normal_;
 
@@ -20,12 +21,12 @@ void Enemy::update(float dt){
     aim_target(target_);
     move(dt);
     timer_ += dt;
-    if (timer_ > 2.0f && timer_ < 4.0f) {
+    if (timer_ > 1.0f && timer_ < 2.0f) {
         changeState(State::HURT);
-    } else if (timer_ > 4.0f) {
-        changeState(State::DIE);
+    } else if (timer_ > 2.0f) {
+        changeState(State::DIE);   
     }
-    
+    remove();
 }
 
 
@@ -60,4 +61,11 @@ void Enemy::changeState(State new_state)
         break;
     }
     current_state_ = new_state;
+}
+
+void Enemy::remove()
+{
+    if (anim_die_->getFinish()) {
+        need_remove_ = true;
+    }
 }

@@ -30,6 +30,7 @@ public:
 
     void checkState();
     void changeState(State new_state);
+    void remove();
 
     // getters and setters
     Player* get_target() { return target_; }
