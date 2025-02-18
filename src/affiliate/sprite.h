@@ -21,11 +21,9 @@ protected:
     bool is_finish_ = false;
 
 public:
-    static Sprite* addSpriteChild(ObjectScreen* parrent, const std::string& file_path, float scale = 1.0f);
+    static Sprite* addSpriteChild(ObjectScreen* parrent, const std::string& file_path, float scale = 1.0f, Anchor anchor = Anchor::CENTER);
 
     virtual void render() override;
-
-    void setScale(float scale) { size_ *= scale; }
 
     // getters and setters
     Texture getTexture() const { return texture_; }
