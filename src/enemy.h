@@ -21,6 +21,7 @@ class Enemy : public Actor
     SpriteAnim* current_anim_ = nullptr;
 
 public:
+    static Enemy* addEnemyChild(Object* parent, glm::vec2 pos, Player* target);
     virtual void init() override;
     virtual void update(float dt) override;  // override the update function from Actor
 
@@ -32,8 +33,8 @@ public:
     void remove();
 
     // getters and setters
-    Player* get_target() { return target_; }
-    void set_target(Player* target) { target_ = target; }
+    Player* getTarget() { return target_; }
+    void setTarget(Player* target) { target_ = target; }
 };
 
 

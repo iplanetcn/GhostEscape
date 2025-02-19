@@ -40,6 +40,7 @@ add_executable(${TARGET}
                 src/affiliate/sprite.cpp
                 src/affiliate/sprite_anim.cpp
                 src/affiliate/collider.cpp
+                src/spawner.cpp
                 src/player.cpp
                 src/enemy.cpp
                 src/main.cpp

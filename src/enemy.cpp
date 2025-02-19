@@ -3,6 +3,15 @@
 #include "affiliate/collider.h"
 #include "raw/stats.h"
 
+Enemy *Enemy::addEnemyChild(Object *parent, glm::vec2 pos, Player *target)
+{
+    auto enemy = new Enemy();
+    enemy->init();
+    enemy->setPosition(pos);
+    enemy->setTarget(target);
+    if (parent) parent->addChild(enemy);
+    return enemy;
+}
 
 void Enemy::init()
 {

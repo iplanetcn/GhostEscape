@@ -3,10 +3,12 @@
 
 #include "core/scene.h"
 
+class Spawner;
 class Player;
 class SceneMain: public Scene
 {
     Player* player_ = nullptr; // 玩家
+    Spawner* spawner_ = nullptr;
 public:
     SceneMain() = default;
     virtual ~SceneMain() = default;

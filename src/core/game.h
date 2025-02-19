@@ -7,6 +7,7 @@
 #include <SDL3_ttf/SDL_ttf.h>
 #include <glm/glm.hpp>
 #include <string>
+#include <random>
 #include "asset_store.h"
 
 struct Texture;
@@ -24,6 +25,8 @@ class Game
 
     SDL_Window* window_ = nullptr; // 窗口
     SDL_Renderer* renderer_ = nullptr; // 渲染器
+
+    std::mt19937 gen_ = std::mt19937(std::random_device{}());
 
     // 私有构造函数
     Game(){}
@@ -49,6 +52,12 @@ public:
     glm::vec2 getScreenSize() const { return screen_size_; } // 获取屏幕大小
     Scene* getCurrentScene() const { return current_scene_; } // 获取当前场景
     AssetStore* getAssetStore() const { return asset_store_; } // 获取资源管理器
+
+    // 随机数函数
+    float randomFloat(float min, float max) { return std::uniform_real_distribution<float>(min, max)(gen_); }
+    int randomInt(int min, int max) { return std::uniform_int_distribution<int>(min, max)(gen_); }
+    glm::vec2 randomVec2(const glm::vec2& min, const glm::vec2& max) { return glm::vec2(randomFloat(min.x, max.x), randomFloat(min.y, max.y)); }
+    glm::ivec2 randomIVec2(const glm::ivec2& min, const glm::ivec2& max) { return glm::ivec2(randomInt(min.x, max.x), randomInt(min.y, max.y)); }
 
     // 渲染函数
     void renderTexture(const Texture& texture, const glm::vec2& position, const glm::vec2& size); // 渲染纹理
