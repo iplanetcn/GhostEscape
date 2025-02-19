@@ -1,4 +1,4 @@
-#ifndef EFECT_H
+#ifndef EFFECT_H
 #define EFFECT_H
 
 #include "../core/object_world.h"

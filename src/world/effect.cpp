@@ -9,7 +9,7 @@ Effect *Effect::addEffectChild(Object* parent, const std::string &file_path, glm
     effect->sprite_->setLoop(false);
     effect->setPosition(pos);
     effect->setNextObject(next_object);
-    parent->addChild(effect);
+    if (parent) parent->addChild(effect);
     return effect;
 }
 

@@ -21,10 +21,11 @@ void Enemy::init()
 
 void Enemy::update(float dt){
     Actor::update(dt);
-    aim_target(target_);
-    move(dt);
-    attack();
-    
+    if (target_->getActive()){
+        aim_target(target_);
+        move(dt);
+        attack();
+    }
 }
 
 
@@ -70,7 +71,7 @@ void Enemy::remove()
 
 void Enemy::attack()
 {
-    if (!collider_ || target_->getCollider() == nullptr) return;
+    if (!collider_ || !target_ || target_->getCollider() == nullptr) return;
     if (collider_->isColliding(target_->getCollider())) {
         // TODO: attack
         if (stats_ && target_->getStats()) {

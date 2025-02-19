@@ -35,7 +35,7 @@ public:
     float getMaxMana() const { return max_mana_; }
     float getDamage() const { return damage_; }
     float getManaRegen() const { return mana_regen_; }
-    bool isAlive() const { return is_alive_; }
+    bool getIsAlive() const { return is_alive_; }
     void setHealth(float health) { health_ = health; }
     void setMaxHealth(float max_health) { max_health_ = max_health; }
     void setMana(float mana) { mana_ = mana; }

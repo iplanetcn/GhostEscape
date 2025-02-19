@@ -22,7 +22,7 @@ public:
     Stats *getStats() const { return stats_; }
     void setStats(Stats *stats) { stats_ = stats; }
     void takeDamage(float damage);
-    bool isAlive() const;
+    bool getIsAlive() const;
 };
 
 
