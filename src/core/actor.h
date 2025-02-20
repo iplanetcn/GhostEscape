@@ -13,7 +13,9 @@ protected:
 
 public:
 
+    virtual void takeDamage(float damage);
     void move(float dt);    // 移动
+    
     // getters and setters
     glm::vec2 getVelocity() const { return velocity_; }
     void setVelocity(const glm::vec2 &velocity) { velocity_ = velocity; }
@@ -21,7 +23,6 @@ public:
     void setMaxSpeed(float max_speed) { max_speed_ = max_speed; }
     Stats *getStats() const { return stats_; }
     void setStats(Stats *stats) { stats_ = stats; }
-    void takeDamage(float damage);
     bool getIsAlive() const;
 };
 

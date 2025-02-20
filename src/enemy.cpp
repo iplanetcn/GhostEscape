@@ -26,6 +26,7 @@ void Enemy::init()
     current_anim_ = anim_normal_;
     collider_ = Collider::addColliderChild(this, current_anim_->getSize());
     stats_ = Stats::addStatsChild(this);
+    setType(ObjectType::ENEMY);
 }
 
 void Enemy::update(float dt){
