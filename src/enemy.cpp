@@ -36,6 +36,8 @@ void Enemy::update(float dt){
         move(dt);
         attack();
     }
+    checkState();
+    remove();
 }
 
 
@@ -49,11 +51,16 @@ void Enemy::aim_target(Player *target)
 
 void Enemy::checkState()
 {
+    State new_state;
+    if (stats_->getHealth() <= 0) new_state = State::DIE;
+    else if (stats_->getInvincible()) new_state = State::HURT;
+    else new_state = State::NORMAL;
+
+    if (new_state != current_state_) changeState(new_state);
 }
 
 void Enemy::changeState(State new_state)
 {
-    if (new_state == current_state_) return;
     current_anim_->setActive(false);
     switch (new_state) {
     case State::NORMAL:
