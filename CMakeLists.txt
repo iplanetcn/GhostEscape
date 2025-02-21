@@ -36,6 +36,7 @@ add_executable(${TARGET}
                 src/core/scene.cpp
                 src/core/actor.cpp
                 src/screen/ui_mouse.cpp
+                src/screen/hud_stats.cpp
                 src/raw/stats.cpp
                 src/raw/weapon.cpp
                 src/world/effect.cpp
