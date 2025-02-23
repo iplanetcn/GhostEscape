@@ -67,6 +67,7 @@ public:
     int getHighScore() const { return high_score_; } // 获取最高分数
 
     void addScore(int score);
+    void quit() { is_running_ = false; }
 
     // 音频函数
     void playMusic(const std::string& music_path, bool loop = true) { Mix_PlayMusic(asset_store_->getMusic(music_path), loop ? -1 : 0); } //-1代表无限循环
@@ -88,13 +89,14 @@ public:
     void renderTexture(const Texture& texture, const glm::vec2& position, const glm::vec2& size, const glm::vec2 &mask = glm::vec2(1.0f)); // 渲染纹理
     void renderFillCircle(const glm::vec2& position, const glm::vec2& size, float alpha);
     void renderHBar(const glm::vec2& position, const glm::vec2& size, float percent, SDL_FColor color);
+    void drawGrid(const glm::vec2& top_left, const glm::vec2& botton_right, float grid_width, SDL_FColor fcolor); // 绘制网格
+    void drawBoundary(const glm::vec2& top_left, const glm::vec2& botton_right, float boundary_width, SDL_FColor fcolor); // 绘制边界
 
     // 文字函数
     TTF_Text* createTTF_Text(const std::string& text, const std::string& font_path, int font_size = 16);
 
     // 工具函数
-    void drawGrid(const glm::vec2& top_left, const glm::vec2& botton_right, float grid_width, SDL_FColor fcolor); // 绘制网格
-    void drawBoundary(const glm::vec2& top_left, const glm::vec2& botton_right, float boundary_width, SDL_FColor fcolor); // 绘制边界
+    bool isMouseInRect(const glm::vec2& top_left, const glm::vec2& botton_right);
 };
 
 #endif // GAME_H
