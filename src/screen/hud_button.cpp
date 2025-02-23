@@ -33,7 +33,7 @@ void HUDButton::handleEvents(SDL_Event &event)
     }
 }
 
-void HUDButton::update(float dt) {
+void HUDButton::update(float) {
     checkHover();
     checkState();
 }
