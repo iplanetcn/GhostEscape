@@ -210,6 +210,17 @@ TTF_Text *Game::createTTF_Text(const std::string &text, const std::string &font_
     return TTF_CreateText(ttf_engine_, font, text.c_str(), 0);
 }
 
+void Game::drawPoints(const std::vector<glm::vec2> &points, glm::vec2 render_pos, SDL_FColor fcolor)
+{
+    SDL_SetRenderDrawColorFloat(renderer_, fcolor.a, fcolor.g ,fcolor.b, fcolor.a);
+    for (auto point : points){
+        auto x = point.x + render_pos.x;
+        auto y = point.y + render_pos.y;
+        SDL_RenderPoint(renderer_, x, y);
+    }
+    SDL_SetRenderDrawColorFloat(renderer_, 0, 0, 0, 1);
+}
+
 bool Game::isMouseInRect(const glm::vec2 &top_left, const glm::vec2 &botton_right)
 {
     if (mouse_position_.x >= top_left.x && mouse_position_.x <= botton_right.x && mouse_position_.y >= top_left.y && mouse_position_.y <= botton_right.y){
