@@ -52,6 +52,7 @@ bool SceneMain::handleEvents(SDL_Event& event)
 
 void SceneMain::update(float dt)
 {
+    checkSlowDown(dt);
     Scene::update(dt);
     updateScore();
     checkButtonRestart();
@@ -134,4 +135,11 @@ void SceneMain::checkEndTimer()
     button_back_->setScale(4.0f);
     button_pause_->setActive(false);
     end_timer_->stop();
+}
+
+void SceneMain::checkSlowDown(float &dt)
+{
+    if (game_.getMouseButtons() & SDL_BUTTON_RMASK){
+        dt *= 0.4;
+    }
 }
