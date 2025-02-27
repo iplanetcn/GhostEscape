@@ -10,7 +10,7 @@ WeaponThunder *WeaponThunder::addWeaponThunderChild(Actor *parent, float cool_do
     weapon->setParent(parent);
     weapon->setCoolDown(cool_down);
     weapon->setManaCost(mana_cost);
-    parent->addChild(weapon);
+    if (parent) parent->addChild(weapon);
     return weapon;
 }
 

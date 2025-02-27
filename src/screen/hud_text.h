@@ -20,11 +20,11 @@ public:
     void setSpriteBg(Sprite *sprite) { sprite_bg_ = sprite; }
     TextLabel* getTextLabel() const { return text_label_; }
     Sprite* getSpriteBg() const { return sprite_bg_; }
-
     void setText(const std::string& text) { text_label_->setText(text); }
     std::string getText() const { return text_label_->getText(); }
     void setSize(const glm::vec2& size);
-
+    glm::vec2 getSize() const { return size_; }
+    
     void setBackgroud(const std::string& file_path);
 };
 

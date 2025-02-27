@@ -21,10 +21,8 @@ class SceneMain: public Scene
     HUDButton* button_restart_ = nullptr;
     HUDButton* button_back_ = nullptr;
     Timer* end_timer_ = nullptr;
+    
 public:
-    SceneMain() = default;
-    virtual ~SceneMain() = default;
-
     virtual void init() override;
     virtual bool handleEvents(SDL_Event& event) override;
     virtual void update(float dt) override;

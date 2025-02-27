@@ -8,7 +8,6 @@ class HUDText;
 class UIMouse;
 class SceneTitle : public Scene
 {
-protected:
     SDL_FColor boundary_color_ = {0.5, 0.5, 0.5, 1};
     float color_timer_ = 0;
     HUDButton* button_start_ = nullptr;

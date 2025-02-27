@@ -34,9 +34,4 @@ private:
     void updateHealthBar();
 };
 
-
-
-
-
-
 #endif // ACTOR_H
