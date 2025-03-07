@@ -39,13 +39,19 @@ sudo apt install libglm-dev
 
 ### Windows
 1. 打开[GLM官方仓库](https://github.com/g-truc/glm)并下载源代码<img src=".screenshot/d028a691f02936d67ca2213fad65b347.png" style='width: 800px;' /> 解压后用VS Code打开源码文件夹，并按照提示执行CMake配置。配置完毕后执行“生成”<img src=".screenshot/fb8c05b89d0f7d56a36da101d346ee9f.png" style='width: 800px;' /> 等待生成结束后，打开左侧资源管理器中的build文件夹，点开“cmake_install.cmake”文件，修改其中的 `CMAKE_INSTALL_PREFIX` 参数为你想要安装的位置。我这里设为C盘的Library文件夹。保存文件后打开“命令”面板（ctrl+shift+p），执行“Cmake 安装” <img src=".screenshot/23eafac4b5dd65dc74b8f6f813c53cf2.png" style='width: 800px;' /><img src=".screenshot/4a47de83c5bc810406ea8f0083ff3880.png" style='width: 800px;' /> 成功后即可在目标地址看到glm文件夹<img src=".screenshot/6d4bc25ee118046ca687c9fadd750207.png" style='width: 800px;' />
+> 如果因为网络因素下载困难，也可以直接使用我下载/编译的库：[百度网盘](https://pan.baidu.com/s/16OuMaAqehGjzSoMS19zNcA?pwd=5brp)，版本与教程相同
+
 2. 设置环境变量，将上一步得到的`文件夹路径` 及 `文件夹路径\lib` 添加到Path变量中<img src=".screenshot/28cb49a9b87c96a009e0d7fb15a2b566.png" />
 至此完成配置。
 
 ## CMakeLists.txt 补充
 要添加GLM的支持，只需要在上期课程的代码中添加 `find_package(glm CONFIG REQUIRED)` 和 `glm::glm` 两行即可。<img src=".screenshot/7b847d543c9161b9191d6eafd7dfce53.png" style='width: 800px;' />
 
-# 资源获取
+## 素材包下载
+[百度网盘](https://pan.baidu.com/s/1kgTPgg40C1DRDA-B6UOzbA?pwd=5v8t)
+
+## 致谢
+游戏素材来自于以下作者，感谢他们的贡献：
 - 精灵图
     - https://caz-creates-games.itch.io/ghost
     - https://master-blazter.itch.io/ghostspritepack
@@ -71,4 +77,3 @@ sudo apt install libglm-dev
     - https://games-for-all-7.itch.io/spooky-music
     - https://poltergasm.itch.io/oh-my-ghost-music
 
-(直接下载 [打包资源](https://pan.baidu.com/s/1kgTPgg40C1DRDA-B6UOzbA?pwd=5v8t)） 
