@@ -2,7 +2,7 @@
 利用SDL3、GLM开发一款生存类型的游戏
 
 ## 项目简介
-此项目为教学演示用途，配套视频教程：[模块化编程与幽灵逃生]() 
+此项目为教学演示用途，配套视频教程：[模块化编程与幽灵逃生](https://www.bilibili.com/video/BV1jf9XYQEhW/)
 
 提示：仓库中包含了所有课节的代码，你可以根据视频教程的进度查找对应的代码。<img src=".screenshot/tags.png" style='width: 400px;' />
 <img src=".screenshot/download.png" style='width: 800px;' />
