@@ -32,8 +32,8 @@ bool Player::handleEvents(SDL_Event& event)
 void Player::update(float dt)
 {
     Actor::update(dt);
-    keyboardControl();
     velocity_ *= 0.9f;
+    keyboardControl();
     checkState();
     move(dt);
     syncCamera();
