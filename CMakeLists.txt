@@ -1,5 +1,5 @@
 # 标题
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 3.20)
 project(GhostEscape VERSION 0.1.0 LANGUAGES C CXX)
 
 # 设置C++标准
@@ -14,7 +14,10 @@ else()
 endif()
 
 # 复制assets文件夹到编译目录
-file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+#file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+
+# assets文件夹创建一个软链接到编译目录
+file(CREATE_LINK "${CMAKE_SOURCE_DIR}/assets" "${CMAKE_BINARY_DIR}/assets" SYMBOLIC)
 
 # 设置编译输出目录
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR})
